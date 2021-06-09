@@ -22,7 +22,8 @@
 		"ritwickdey.liveserver",
 		"tomoki1207.pdf",
 		"naumovs.color-highlight",
-		"visualstudioexptteam.vscodeintellicode"
+		"visualstudioexptteam.vscodeintellicode",
+		"christian-kohler.path-intellisense"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
