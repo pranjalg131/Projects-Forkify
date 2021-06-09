@@ -27,6 +27,7 @@ export const loadRecipe = async function (id) {
       ingredients: recipe.ingredients,
     };
   } catch (err) {
+    console.log(err);
     alert(err);
   }
 };
