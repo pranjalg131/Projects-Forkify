@@ -8,7 +8,7 @@ import "regenerator-runtime/runtime";
 
 ///////////////////////////////////////
 
-const showRecipes = async function () {
+const controlRecipes = async function () {
   try {
     // Getting the id from the hash
     const id = window.location.hash.slice(1);
@@ -25,8 +25,7 @@ const showRecipes = async function () {
   }
 };
 
-showRecipes();
-
-["hashchange", "load"].forEach((ev) =>
-  window.addEventListener(ev, showRecipes)
-);
+const init = function () {
+  recipeView.addHandlerRender(controlRecipes);
+};
+init();

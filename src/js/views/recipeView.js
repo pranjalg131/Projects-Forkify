@@ -31,6 +31,13 @@ class RecipeView {
     this.#parentElement.innerHTML = "";
   }
 
+  // Implements the pub sub model for listening events in the view and handling them in the controller.
+  addHandlerRender(handler) {
+    ["hashchange", "load"].forEach((ev) =>
+      window.addEventListener(ev, handler)
+    );
+  }
+
   // This generates the markup for the recipies container to display the selected recipe
   #generateMarkup() {
     return `
