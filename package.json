@@ -1,0 +1,24 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "A recipe catalogue for storing and retrieving recipies",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcle build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pranjalg131/Projects-Forkify.git"
+  },
+  "author": "Pranjal Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pranjalg131/Projects-Forkify/issues"
+  },
+  "homepage": "https://github.com/pranjalg131/Projects-Forkify#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-nightly.716",
+    "parcel": "^2.0.0-beta.2"
+  }
+}
