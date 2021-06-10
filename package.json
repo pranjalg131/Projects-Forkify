@@ -17,13 +17,13 @@
     "url": "https://github.com/pranjalg131/Projects-Forkify/issues"
   },
   "homepage": "https://github.com/pranjalg131/Projects-Forkify#readme",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-nightly.716",
-    "parcel": "^2.0.0-beta.2"
-  },
   "dependencies": {
     "core-js": "^3.14.0",
     "fractional": "^1.0.0",
     "regenerator-runtime": "^0.13.7"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.1",
+    "sass": "^1.34.1"
   }
 }
