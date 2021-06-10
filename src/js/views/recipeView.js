@@ -5,6 +5,8 @@ class RecipeView {
   // These will be there with every view
   #parentElement = document.querySelector(".recipe");
   #data;
+  #errorMessage = "We could not find that recipe. Please try another one!"
+  #message = ""
 
   // Used to render the recipe which is provided by the controller
   render(data) {
@@ -23,12 +25,44 @@ class RecipeView {
       </svg>
     </div>
     `;
-    this.#parentElement.innerHTML = "";
+    this.#clear();
     this.#parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   #clear() {
     this.#parentElement.innerHTML = "";
+  }
+
+  // Implements the error message display for the view
+  renderError(message = this.#errorMessage){
+    const markup = `
+      <div class="error">
+        <div>
+          <svg>
+            <use href="${icons}#icon-alert-triangle"></use>
+          </svg>
+        </div>
+        <p>${message}</p>
+      </div>
+    `
+    this.#clear();
+    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
+  }
+
+  // Implements message display for the view.
+  renderMessage(message = this.#message){
+    const markup = `
+      <div class="error">
+        <div>
+          <svg>
+            <use href="${icons}#icon-smile"></use>
+          </svg>
+        </div>
+        <p>${message}</p>
+      </div>
+    `
+    this.#clear();
+    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   // Implements the pub sub model for listening events in the view and handling them in the controller.
