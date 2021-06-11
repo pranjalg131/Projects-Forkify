@@ -4,12 +4,15 @@ export default class View {
   _data;
 
   // Used to render the recipe which is provided by the controller
-  render(data) {
+  render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
 
     this._data = data;
     const markup = this._generateMarkup();
+
+    if (!render) return markup;
+
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
@@ -29,7 +32,6 @@ export default class View {
         !newEl.isEqualNode(currEl) &&
         newEl.firstChild?.nodeValue.trim() !== ""
       ) {
-        console.log(newEl.firstChild?.nodeValue.trim());
         currEl.textContent = newEl.textContent;
       }
 
