@@ -14,6 +14,34 @@ export default class View {
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
+  update(data) {
+    this._data = data;
+    const newMarkup = this._generateMarkup();
+    const newDOM = document.createRange().createContextualFragment(newMarkup);
+    const newElements = Array.from(newDOM.querySelectorAll("*"));
+    const currElemnts = Array.from(this._parentElement.querySelectorAll("*"));
+
+    newElements.forEach((newEl, i) => {
+      const currEl = currElemnts[i];
+
+      // Updating the text content of the elements
+      if (
+        !newEl.isEqualNode(currEl) &&
+        newEl.firstChild?.nodeValue.trim() !== ""
+      ) {
+        console.log(newEl.firstChild?.nodeValue.trim());
+        currEl.textContent = newEl.textContent;
+      }
+
+      // Updating the attributes of the elements
+      if (!newEl.isEqualNode(currEl)) {
+        Array.from(newEl.attributes).forEach((atr) => {
+          currEl.setAttribute(atr.name, atr.value);
+        });
+      }
+    });
+  }
+
   // Renders the loading spinner while the recipe is loading
   renderSpinner() {
     const markup = `
