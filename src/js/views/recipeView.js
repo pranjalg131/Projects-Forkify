@@ -37,7 +37,6 @@ class RecipeView extends View {
 
   // This generates the markup for the recipies container to display the selected recipe
   _generateMarkup() {
-    console.log(this._data);
     return `
       <figure class="recipe__fig">
         <img src="${this._data.image}" alt="${
@@ -85,7 +84,7 @@ class RecipeView extends View {
           </div>
         </div>
 
-        <div class="recipe__user-generated">
+        <div class="recipe__user-generated ${this._data.key ? "" : "hidden"}">
           <svg>
             <use href="${icons}#icon-user"></use>
           </svg>
@@ -103,17 +102,6 @@ class RecipeView extends View {
         <h2 class="heading--2">Recipe ingredients</h2>
         <ul class="recipe__ingredient-list">
           ${this._data.ingredients.map(this._generateMarkupIngredient).join("")}
-
-          <li class="recipe__ingredient">
-            <svg class="recipe__icon">
-              <use href="${icons}#icon-check"></use>
-            </svg>
-            <div class="recipe__quantity">0.5</div>
-            <div class="recipe__description">
-              <span class="recipe__unit">cup</span>
-              ricotta cheese
-            </div>
-          </li>
         </ul>
       </div>
 
