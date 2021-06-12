@@ -2,10 +2,10 @@
   "name": "forkify",
   "version": "1.0.0",
   "description": "A recipe catalogue for storing and retrieving recipies",
-  "main": "index.html",
+  "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcle build index.html"
+    "build": "parcel build --no-minify index.html --dist-dir ./dist "
   },
   "repository": {
     "type": "git",
